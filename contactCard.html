@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<style>
+			form input{
+				margin:20px;
+			}
+
+			#left{
+				display:inline-block;
+			}
+
+			#right{
+				display:inline-block;
+			}
+
+			#card{
+				border:thin solid black;
+				text-align:center;
+				width:250px;
+				height:150px;
+				display:show;
+			}
+			#back{
+				display:none;
+			}
+		</style>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("button").click(function(){
+					var first = $("#first").val();
+					var last = $("#last").val();
+					var desc = $("#desc").val();
+					$("#right").append("<div id='card'<p>" + first + " " + last + "</p><p id='back'>" + desc + "</p>");
+				});
+
+				$(document).on("click","#card",function(){
+					$(this).children().toggle();
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="left">
+			<form>
+				First name:
+				<input type="text" name="firstname" id="first">
+				<br>
+				Last name:
+				<input type="text" name="lastname" id="last">
+				<br>
+				Description:
+				<br>
+				<textarea id="desc"></textarea>
+				<br>
+				<button type = "button">Add User</button>
+			</form>
+		</div>
+		<div id="right">
+		</div>
+	</body>
+</html>
